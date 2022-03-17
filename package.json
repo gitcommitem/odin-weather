@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "semistandard": "^16.0.1"
+  }
+}
