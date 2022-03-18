@@ -8,6 +8,59 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    
+    <div class="vflex" id="page-cont">
+        <nav class="hflex">
+            <div>
+                <input type="search" id="search" placeholder="Search for a city">
+                <button type="button" id="search"><img class="icon" src="magnifying-glass-bold.svg" alt="search icon"></button>
+            </div>
+            <div class="hflex" id="degree-toggle">
+                <p>°C</p>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+                <p>°F</p>
+            </div>
+        </nav>
+        <main>
+            <section id="hero">
+                <h1 id="location">San Ramon, CA</h1>
+                <h2 id="current-temp">56<span id="hero-degree">°F</span></h2>
+                <h2 id="current-weather">Currently clear</h2>
+                <div class="hflex" id="high-low">
+                    <div class="hflex hero-range">
+                        <p>high</p>
+                        <p class="temp-range">65<span class="degree">°F</span></p>
+                    </div>
+                    <div class="hflex hero-range">
+                        <p>low</p>
+                        <p class="temp-range">48<span class="degree">°F</span></p>
+                    </div>
+                </div>
+            </section>
+            <section id="week-forecast">
+                <div class="hflex forecast-card">
+                    <div>
+                        <h2>Thu</h2>
+                        <p>03/17</p>
+                    </div>
+                    <div>
+                        <h1>Overcast</h1>
+                        <div class="hflex range">
+                            <p class="temp-range">65</p>
+                            <p class="temp-range">48</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>
+                This site uses OpenMeteo API.
+            </p>
+        </footer>
+
+    </div>
 </body>
 </html>
