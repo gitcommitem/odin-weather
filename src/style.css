@@ -1,0 +1,227 @@
+/* manrope-500 - latin */
+@font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+         url('./fonts/manrope-v11-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/manrope-v11-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  
+  /* manrope-600 - latin */
+  @font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+         url('./fonts/manrope-v11-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/manrope-v11-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  
+  /* manrope-800 - latin */
+  @font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 800;
+    src: local(''),
+         url('./fonts/manrope-v11-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./fonts/manrope-v11-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+:root,input{
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+
+    --day-clear: linear-gradient(180deg, #3AACFE 0%, #D0F1FF 100%);
+    --night-clear: linear-gradient(180deg, #080C35 0%, #151D64 44.79%, #384883 100%);
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p
+{
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    background: var(--day-clear);
+}
+
+/* Utility classes */
+.vflex{
+    display: flex;
+    flex-direction: column;
+}
+
+.hflex{
+    display: flex;
+}
+
+/* Typography */
+h1#location{
+    font-weight: 500;
+}
+
+h2#current-temp{
+    font-weight: 800;
+    font-size: 10rem;
+    position: relative;
+    left: 1rem;
+    line-height: 1.2;
+}
+
+h2#current-weather{
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+span#hero-degree{
+    font-weight: 600;
+    font-size: 2rem;
+    position: relative;
+    top: -5.7rem;
+}
+
+span.degree{
+    font-size: 1rem;
+    position: relative;
+    top: -0.4rem;
+}
+
+p.temp-range{
+    font-size: 1.5rem;
+}
+
+nav.hflex{
+    justify-content: space-between;
+}
+
+#page-cont{
+    margin: 2rem auto;
+    min-height: 100vh;
+    width: 90vw;
+}
+
+input#search{
+    border-radius: 100rem 0rem 0rem 100rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+button#search{
+    position: relative;
+    top: 0.2rem;
+    left: -0.2rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 0;
+    padding: 0.38rem 1rem 0.38rem 0.5rem;
+    border-radius: 0rem 100rem 100rem 0rem;
+}
+
+img.icon{
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+#degree-toggle{
+    gap: 0.5rem;
+}
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 500ms;
+}
+
+/*This is the round toggle button*/
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: white;
+    transition: 500ms;
+}
+
+input:checked + .slider{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+input:checked + .slider::before{
+    transform: translateX(1.5rem);
+}
+
+.slider,.slider::before{
+    border-radius: 100rem;
+}
+
+main{
+    width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section#hero{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+div#high-low{
+    gap: 2rem;
+    justify-content: center;
+}
+
+div.hero-range{
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.forecast-card{
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    border-radius:  1rem;
+}
+
+.range{
+    gap: 1rem;
+}
+
+footer{
+    margin-top: auto;
+    opacity: 0.6;
+}
