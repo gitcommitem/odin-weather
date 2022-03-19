@@ -9,7 +9,7 @@ const fetchIpLocation = async () => {
     // If IP API throws an error or can't be accessed, default to showing this location's weather
     const ipData = {
       city: 'Tokyo',
-      region_code: 'Japan',
+      region: 'Japan',
       latitude: 35.625,
       longitude: 139.625,
       timezone: 'Asia/Tokyo'
