@@ -43,8 +43,8 @@ const createWeatherReport = async (fetchedWeatherData) => {
   const fetchedWeekForecast = fetchedWeatherData.daily;
 
   const pullDailyWeatherData = (index) => {
-    const date = fetchedWeekForecast.time[index];
-    const day = date.toLocaleString('default', { weekday: 'short' });
+    const date = fetchedWeekForecast.time[index].replace(/-/g, '/');
+    const day = new Date(date).toLocaleString('default', { weekday: 'short' });
     const high = roundTemp(fetchedWeekForecast.temperature_2m_max[index]);
     const low = roundTemp(fetchedWeekForecast.temperature_2m_min[index]);
     const weatherIs = weatherCode[fetchedWeekForecast.weathercode[index]];
