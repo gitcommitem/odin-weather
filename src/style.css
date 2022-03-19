@@ -90,7 +90,7 @@ h2#current-weather{
     margin-bottom: 1rem;
 }
 
-span#hero-degree{
+span.hero-degree{
     font-weight: 600;
     font-size: 2rem;
     position: relative;
