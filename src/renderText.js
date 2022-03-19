@@ -1,6 +1,5 @@
-const renderText = async (elementSelector, string) => {
-  await string;
+const renderText = (elementSelector, string) => {
   const targetEl = document.querySelector(elementSelector);
-  targetEl.textContext = string;
+  targetEl.textContent = string;
 };
 export { renderText };
