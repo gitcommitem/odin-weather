@@ -6,6 +6,9 @@ const createLocationData = async (fetchedGeoData) => {
   if (isOpenMeteoAPI) {
     city = fetchedGeoData.name;
     region = fetchedGeoData.admin1;
+    if (city === region) {
+      region = fetchedGeoData.country;
+    }
   } else {
   // If fetchedGeoData is from IP API do the following:
     city = fetchedGeoData.city;

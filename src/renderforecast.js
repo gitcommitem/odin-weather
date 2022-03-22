@@ -13,10 +13,12 @@ const renderForecast = (day, index) => {
 
   const dateH1El = document.createElement('h1');
   dateH1El.textContent = day.day;
+  dateH1El.dataset.id = index;
   dateDivEl.appendChild(dateH1El);
 
   const datePEl = document.createElement('p');
   datePEl.textContent = day.date;
+  datePEl.dataset.id = index;
   dateDivEl.appendChild(datePEl);
 
   const weatherDivEl = document.createElement('div');
@@ -25,6 +27,7 @@ const renderForecast = (day, index) => {
 
   const weatherH1El = document.createElement('h1');
   weatherH1El.textContent = day.weatherIs;
+  weatherH1El.dataset.id = index;
   weatherDivEl.appendChild(weatherH1El);
 
   const tempDivEl = document.createElement('div');

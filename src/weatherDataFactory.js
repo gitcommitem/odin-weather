@@ -49,9 +49,18 @@ const createWeatherReport = async (fetchedWeatherData) => {
     const dayOfMonth = new Date(fetchedDate).getDate();
     const date = paddedMonth + '/' + dayOfMonth;
     const day = new Date(fetchedDate).toLocaleString('default', { weekday: 'short' });
-    const high = roundTemp(fetchedWeekForecast.temperature_2m_max[index]);
-    const low = roundTemp(fetchedWeekForecast.temperature_2m_min[index]);
-    const weatherIs = weatherCode[fetchedWeekForecast.weathercode[index]];
+    let high = roundTemp(fetchedWeekForecast.temperature_2m_max[index]);
+    if (isNaN(high) === true) {
+      high = '- -';
+    }
+    let low = roundTemp(fetchedWeekForecast.temperature_2m_min[index]);
+    if (isNaN(low) === true) {
+      low = '- -';
+    }
+    let weatherIs = weatherCode[fetchedWeekForecast.weathercode[index]];
+    if (weatherIs === undefined) {
+      weatherIs = 'no signal... 📡';
+    }
     return { date, day, high, low, weatherIs };
   };
 
