@@ -9,16 +9,34 @@ import { renderTemp } from './renderTemp';
 import { renderForecast } from './renderforecast';
 import { convertTemp } from './convertTemp';
 
+const tempToggleEl = document.querySelector('div#degree-toggle input[type="checkbox"]');
+const storage = window.localStorage;
+if (storage.getItem('degree')) {
+  const degreePref = storage.getItem('degree');
+  const parsedPref = JSON.parse(degreePref);
+  tempToggleEl.checked = parsedPref;
+} else {
+  storage.setItem('degree', true);
+}
+
 (async () => {
   const fetchedIpData = await fetchIpLocation();
   const userLocation = await createLocationData(fetchedIpData);
   const fetchedWeatherData = await fetchWeatherData(userLocation);
   const weatherReport = await createWeatherReport(fetchedWeatherData);
+
   renderText('h1#location', `${userLocation.city}, ${userLocation.region}`);
-  renderTemp('h2#current-temp', weatherReport.currentTemp, 'hero-degree');
+
+  const convertedCurrentTemp = convertTemp(weatherReport.currentTemp);
+  renderTemp('h2#current-temp', convertedCurrentTemp, 'hero-degree');
+
   renderText('h2#current-weather', `Currently ${weatherReport.currentWeatherIs}`);
-  renderTemp('div.hero-range p.high', weatherReport.day0.high, 'degree');
-  renderTemp('div.hero-range p.low', weatherReport.day0.low, 'degree');
+
+  const convertedHighTemp = convertTemp(weatherReport.day0.high);
+  renderTemp('div.hero-range p.high', convertedHighTemp, 'degree');
+
+  const convertedLowTemp = convertTemp(weatherReport.day0.low);
+  renderTemp('div.hero-range p.low', convertedLowTemp, 'degree');
 
   const weeklyForecast = [
     weatherReport.day0,
@@ -35,8 +53,10 @@ import { convertTemp } from './convertTemp';
     renderForecast(day, index);
   });
 
-  const tempToggleEl = document.querySelector('div#degree-toggle input[type="checkbox"]');
   tempToggleEl.addEventListener('click', () => {
+    // Store user preference for degree
+    tempToggleEl.checked === false ? storage.setItem('degree', false) : storage.setItem('degree', true);
+    console.log(storage);
     // Convert and display the temperatures for current weather
     const convertedCurrentTemp = convertTemp(weatherReport.currentTemp);
     renderTemp('h2#current-temp', convertedCurrentTemp, 'hero-degree');
