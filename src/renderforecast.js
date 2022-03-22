@@ -6,6 +6,7 @@ const renderForecast = (day) => {
   forecastContEl.appendChild(cardDivEl);
 
   const dateDivEl = document.createElement('div');
+  dateDivEl.classList.add('date');
   cardDivEl.appendChild(dateDivEl);
 
   const dateH1El = document.createElement('h1');
@@ -17,6 +18,7 @@ const renderForecast = (day) => {
   dateDivEl.appendChild(datePEl);
 
   const weatherDivEl = document.createElement('div');
+  weatherDivEl.classList.add('weather');
   cardDivEl.appendChild(weatherDivEl);
 
   const weatherH1El = document.createElement('h1');
