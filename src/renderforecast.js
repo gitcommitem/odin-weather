@@ -1,4 +1,6 @@
-const renderForecast = (day) => {
+import { convertTemp } from './convertTemp';
+
+const renderForecast = (day, index) => {
   const forecastContEl = document.querySelector('section#week-forecast');
 
   const cardDivEl = document.createElement('div');
@@ -31,12 +33,16 @@ const renderForecast = (day) => {
 
   const highPEl = document.createElement('p');
   highPEl.classList.add('temp-range', 'high');
-  highPEl.textContent = day.high;
+  highPEl.dataset.id = index;
+  const highTemp = convertTemp(day.high);
+  highPEl.textContent = highTemp;
   tempDivEl.appendChild(highPEl);
 
   const lowPEl = document.createElement('p');
   lowPEl.classList.add('temp-range', 'low');
-  lowPEl.textContent = day.low;
+  lowPEl.dataset.id = index;
+  const lowTemp = convertTemp(day.low);
+  lowPEl.textContent = lowTemp;
   tempDivEl.appendChild(lowPEl);
 };
 
