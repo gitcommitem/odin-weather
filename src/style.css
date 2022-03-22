@@ -112,11 +112,12 @@ p.temp-range{
     font-size: 1.5rem;
 }
 
-nav.hflex{
+nav{
     justify-content: space-between;
+    margin-bottom: 2rem;
 }
 
-#page-cont{
+div#page-cont{
     margin: 2rem auto;
     min-height: 100vh;
     width: 90vw;
@@ -193,6 +194,11 @@ input:checked + .slider::before{
     border-radius: 100rem;
 }
 
+main{
+    justify-content: center;
+    min-height: 90vh;
+}
+
 section#hero{
     text-align: center;
     margin-bottom: 3rem;
@@ -212,6 +218,7 @@ section#week-forecast{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1rem;
+    padding-bottom: 2rem;
     overflow-x: scroll;
 }
 
@@ -222,7 +229,7 @@ section#week-forecast{
 .forecast-card{
     gap: 1.5rem;
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.08);
     padding: 2rem;
     border-radius:  1rem;
     flex-wrap: wrap;
