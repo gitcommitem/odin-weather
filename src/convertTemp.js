@@ -1,6 +1,6 @@
 const convertTemp = (temperature) => {
   const isFahrenheit = document.querySelector('div#degree-toggle input[type="checkbox"]').checked === true;
-  if (isFahrenheit || temperature === '--') {
+  if (isFahrenheit || temperature === '- -') {
     // Temperatures fetched from API are already in F
     return temperature;
   } else {
