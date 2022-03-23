@@ -4,7 +4,7 @@ import { fetchIpLocation } from './fetchIpData';
 import { fetchGeoData } from './fetchGeoData';
 import { displayWeather } from './displayWeather';
 import { displayTemp } from './displayTemp';
-import { toggleLoading } from '.toggleLoading';
+import { toggleLoading } from './toggleLoading';
 
 const tempToggleEl = document.querySelector('div#degree-toggle input[type="checkbox"]');
 const storage = window.localStorage;
@@ -30,7 +30,6 @@ if (storage.getItem('degree')) {
   const searchButtonEl = document.querySelector('button#search');
   searchButtonEl.addEventListener('click', async () => {
     toggleLoading();
-
     const searchValue = document.querySelector('input#search').value;
     [weatherReport, weeklyForecast] = await displayWeather(fetchGeoData, searchValue);
 
