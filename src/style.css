@@ -31,9 +31,8 @@
 :root,input{
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
-
+    font-size: 1rem;
     --day-clear: linear-gradient(180deg, #3AACFE 0%, #D0F1FF 100%);
-    --night-clear: linear-gradient(180deg, #080C35 0%, #151D64 44.79%, #384883 100%);
 }
 
 /* Box sizing rules */
@@ -120,6 +119,7 @@ p.temp-range{
 
 nav{
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
 }
 
@@ -133,7 +133,7 @@ input#search{
     border-radius: 100rem;
     border: none;
     padding: 0.5rem 1rem;
-    width: 15vw;
+    width: 20vw;
     background-color: rgba(255, 255, 255, 0.5);
 }
 
