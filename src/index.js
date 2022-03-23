@@ -4,6 +4,7 @@ import { fetchIpLocation } from './fetchIpData';
 import { fetchGeoData } from './fetchGeoData';
 import { displayWeather } from './displayWeather';
 import { displayTemp } from './displayTemp';
+import { toggleLoading } from '.toggleLoading';
 
 const tempToggleEl = document.querySelector('div#degree-toggle input[type="checkbox"]');
 const storage = window.localStorage;
@@ -21,11 +22,21 @@ if (storage.getItem('degree')) {
   // On load, display local weather based on IP address
   let [weatherReport, weeklyForecast] = await displayWeather(fetchIpLocation);
 
+  if (weeklyForecast.length !== 0) {
+    toggleLoading();
+  }
+
   // Display weather for searched location
   const searchButtonEl = document.querySelector('button#search');
   searchButtonEl.addEventListener('click', async () => {
+    toggleLoading();
+
     const searchValue = document.querySelector('input#search').value;
     [weatherReport, weeklyForecast] = await displayWeather(fetchGeoData, searchValue);
+
+    if (weeklyForecast.length !== 0) {
+      toggleLoading();
+    }
   });
 
   // Toggle temperature display between Celsius and Fahrenheit

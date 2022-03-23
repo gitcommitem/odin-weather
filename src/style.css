@@ -77,6 +77,12 @@ h1#location{
     font-weight: 500;
 }
 
+h1.loader{
+    font-weight: 600;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
 h2#current-temp{
     font-weight: 800;
     font-size: 10rem;
@@ -195,13 +201,24 @@ input:checked + .slider::before{
 }
 
 main{
+    position: relative;
     justify-content: center;
     min-height: 90vh;
+}
+
+div#loader-cont{
+    position: absolute;
+    width: 100%;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 section#hero{
     text-align: center;
     margin-bottom: 3rem;
+    opacity: 0;
 }
 
 div#high-low{
@@ -220,6 +237,7 @@ section#week-forecast{
     gap: 1rem;
     padding-bottom: 2rem;
     overflow-x: scroll;
+    opacity: 0;
 }
 
 .weather{
@@ -242,4 +260,28 @@ section#week-forecast{
 footer{
     margin-top: auto;
     opacity: 0.6;
+}
+
+h1.loader{
+    animation: fade-animation 700ms linear infinite alternate;
+    transition: 500ms linear;
+}
+
+@keyframes fade-animation {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0.3;
+    }
+}
+
+div#loader-cont.loaded{
+    opacity: 0;
+    transition: 500ms;
+}
+
+section.loaded#hero,section.loaded#week-forecast{
+    opacity: 100;
+    transition: 500ms;
 }
