@@ -12,7 +12,7 @@ const createLocationData = async (fetchedGeoData) => {
     const openMeteoGeoData = fetchedGeoData.results[0];
     city = openMeteoGeoData.name;
     region = openMeteoGeoData.admin1;
-    if (city === region) {
+    if (city === region || region === undefined) {
       region = openMeteoGeoData.country;
     }
     latitude = openMeteoGeoData.latitude;

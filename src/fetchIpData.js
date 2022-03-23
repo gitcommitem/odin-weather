@@ -1,8 +1,6 @@
-// Url to access the IP API is https://ipapi.co/json/
-
 const fetchIpLocation = async () => {
   try {
-    const response = await fetch('', { mode: 'cors' });
+    const response = await fetch('https://ipapi.co/json/', { mode: 'cors' });
     const ipData = await response.json();
     return ipData;
   } catch (err) {

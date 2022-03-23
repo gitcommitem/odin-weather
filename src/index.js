@@ -27,14 +27,21 @@ if (storage.getItem('degree')) {
   }
 
   // Display weather for searched location
-  const searchButtonEl = document.querySelector('button#search');
-  searchButtonEl.addEventListener('click', async () => {
-    toggleLoading();
-    const searchValue = document.querySelector('input#search').value;
-    [weatherReport, weeklyForecast] = await displayWeather(fetchGeoData, searchValue);
+  const searchInputEl = document.querySelector('input#search');
+  searchInputEl.addEventListener('keydown', async (key) => {
+    if (key.key === 'Enter') {
+      const searchValue = document.querySelector('input#search').value;
 
-    if (weeklyForecast.length !== 0) {
+      if (searchValue === '' || searchValue.length === 1) {
+        return;
+      }
+
       toggleLoading();
+      [weatherReport, weeklyForecast] = await displayWeather(fetchGeoData, searchValue);
+      document.querySelector('input#search').value = '';
+      if (weeklyForecast.length !== 0) {
+        toggleLoading();
+      }
     }
   });
 
