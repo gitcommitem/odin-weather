@@ -1,22 +1,32 @@
 const createLocationData = async (fetchedGeoData) => {
   await fetchedGeoData;
-  const isOpenMeteoAPI = 'admin1' in fetchedGeoData === true;
+
   let city = '';
   let region = '';
+  let latitude = '';
+  let longitude = '';
+  let timezone = '';
+
+  const isOpenMeteoAPI = 'results' in fetchedGeoData === true;
   if (isOpenMeteoAPI) {
-    city = fetchedGeoData.name;
-    region = fetchedGeoData.admin1;
+    const openMeteoGeoData = fetchedGeoData.results[0];
+    city = openMeteoGeoData.name;
+    region = openMeteoGeoData.admin1;
     if (city === region) {
-      region = fetchedGeoData.country;
+      region = openMeteoGeoData.country;
     }
+    latitude = openMeteoGeoData.latitude;
+    longitude = openMeteoGeoData.longitude;
+    timezone = openMeteoGeoData.timezone.replace('/', '%2F');
   } else {
   // If fetchedGeoData is from IP API do the following:
     city = fetchedGeoData.city;
     region = fetchedGeoData.region;
+    latitude = fetchedGeoData.latitude;
+    longitude = fetchedGeoData.longitude;
+    timezone = fetchedGeoData.timezone.replace('/', '%2F');
   }
-  const latitude = fetchedGeoData.latitude;
-  const longitude = fetchedGeoData.longitude;
-  const timezone = fetchedGeoData.timezone.replace('/', '%2F');
+
   return { city, region, latitude, longitude, timezone };
 };
 
