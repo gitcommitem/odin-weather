@@ -11,8 +11,7 @@
     <div class="vflex" id="page-cont">
         <nav class="hflex">
             <div>
-                <input type="search" id="search" placeholder="Search for a city or zipcode">
-                <button type="button" id="search"><img class="icon" src="magnifying-glass-bold.svg" alt="search icon"></button>
+                <input type="search" minlength="2" maxlength="300" id="search" placeholder="Search for a city or zipcode">
             </div>
             <div class="hflex" id="degree-toggle">
                 <p>°C</p>
@@ -26,6 +25,7 @@
         <main class="vflex">
             <div class="vflex" id="loader-cont">
                 <h1 class="loader">📡 Fetching weather signal 📡</h1>
+                <p></p>
             </div>
             <section class="" id="hero">
                 <h1 id="location"></h1>
@@ -46,7 +46,7 @@
         </main>
         <footer>
             <p>
-                This site uses <a href='https://open-meteo.com/en' target='new'>Open-Meteo API</a> 
+                Geocoding and weather data provided by <a href='https://open-meteo.com/en' target='new'>Open-Meteo API</a> 
             </p>
         </footer>
 
