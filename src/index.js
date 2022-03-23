@@ -46,7 +46,7 @@ if (storage.getItem('degree')) {
   });
 
   // Toggle temperature display between Celsius and Fahrenheit
-  tempToggleEl.addEventListener('click', async () => {
+  tempToggleEl.addEventListener('click', () => {
     // Store user preference for degree
     tempToggleEl.checked === false ? storage.setItem('degree', false) : storage.setItem('degree', true);
 
